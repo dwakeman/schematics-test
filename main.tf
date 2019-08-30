@@ -1,8 +1,8 @@
-resource "ibm_is_vpc" "vpc2-tf" {
+resource "ibm_is_vpc" "vpc1" {
   name = "vpc2-tf"
 }
 
-resource "ibm_is_subnet" "vpc2-subnet1" {
+resource "ibm_is_subnet" "subnet1" {
   name            = "vpc2-subnet1"
   vpc             = "${ibm_is_vpc.vpc1.id}"
   zone            = "${var.zone1}"
