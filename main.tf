@@ -26,15 +26,15 @@ resource "ibm_is_subnet" "subnet2" {
   }
 }
 
-resource "ibm_is_subnet" "subnet3" {
-  name            = "vpc2-subnet3"
-  vpc             = "${ibm_is_vpc.vpc1.id}"
-  zone            = "${var.zone3}"
-  ipv4_cidr_block = "10.240.128.0/18"
-
-  provisioner "local-exec" {
-    command = "sleep 300"
-    when    = "destroy"
-  }
-}
+#resource "ibm_is_subnet" "subnet3" {
+#  name            = "vpc2-subnet3"
+#  vpc             = "${ibm_is_vpc.vpc1.id}"
+#  zone            = "${var.zone3}"
+#  ipv4_cidr_block = "10.240.128.0/18"
+#
+#  provisioner "local-exec" {
+#    command = "sleep 300"
+#    when    = "destroy"
+#  }
+#}
 
