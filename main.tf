@@ -1,7 +1,16 @@
 variable "vpc_name" {}
+variable "resource_group" {
+    default = "default"
+}
+
+variable "environment" {
+    default = "sandbox"
+}
 
 resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
+  resource_group  = "${var.resource_group}"
+  tags = ["${var.environment}", "terraform"]
 }
 
 resource "ibm_is_subnet" "subnet1" {
