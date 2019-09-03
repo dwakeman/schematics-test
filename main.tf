@@ -3,13 +3,16 @@ variable "resource_group" {
     default = "default"
 }
 
+data "ibm_resource_group" "group" {
+    name = "${var.resource_group}"
+}
 variable "environment" {
     default = "sandbox"
 }
 
 resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
-  resource_group  = "${var.resource_group}"
+  resource_group  = "${data.ibm_resource_group.group.id}"
   tags = ["${var.environment}", "terraform"]
 
 #  provisioner "local-exec" {
