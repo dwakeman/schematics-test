@@ -13,7 +13,10 @@ resource "ibm_is_vpc" "vpc1" {
   tags = ["${var.environment}", "terraform"]
 
   provisioner "local-exec" {
-      command = "ic resource groups"
+      command = <<EOF
+ic api https://cloud.ibm.com;
+ic resource groups
+EOF
       when = "create"
   }
 }
