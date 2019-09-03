@@ -1,3 +1,7 @@
+variable "region" {
+    default = "us-south"
+}
+
 variable "zone1" {
   default = "us-south-1"
 }
@@ -11,11 +15,11 @@ variable "zone3" {
 }
 
 variable cidr_block_1 {
-    default = "10.240.0.0/28"
+    default = "10.240.0.0/18"
 }
 
 variable cidr_block_2 {
-    default = "10.240.64.0/28"
+    default = "10.240.64.0/18"
 }
 
 variable cidr_block_3 {
