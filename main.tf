@@ -12,13 +12,13 @@ resource "ibm_is_vpc" "vpc1" {
   resource_group  = "${var.resource_group}"
   tags = ["${var.environment}", "terraform"]
 
-  provisioner "local-exec" {
-      command = <<EOF
-ic api https://cloud.ibm.com;
-ic resource groups
-EOF
-      when = "create"
-  }
+#  provisioner "local-exec" {
+#      command = <<EOF
+#ic api https://cloud.ibm.com;
+#ic resource groups
+#EOF
+#      when = "create"
+#  }
 }
 
 resource "ibm_is_subnet" "subnet1" {
