@@ -15,6 +15,7 @@ resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
   resource_group  = "${data.ibm_resource_group.group.id}"
   tags = ["${var.environment}", "terraform"]
+}
 
 resource "null_resource" "groups" {
 
