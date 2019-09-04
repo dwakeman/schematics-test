@@ -25,3 +25,12 @@ variable cidr_block_2 {
 variable cidr_block_3 {
     default = "10.240.128.0/18"
 }
+
+variable account_id {
+
+}
+
+variable ibm_cloud_api_key {
+
+}
+

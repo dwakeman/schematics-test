@@ -3,6 +3,7 @@ variable "resource_group" {
     default = "default"
 }
 
+
 data "ibm_resource_group" "group" {
     name = "${var.resource_group}"
 }
@@ -15,13 +16,18 @@ resource "ibm_is_vpc" "vpc1" {
   resource_group  = "${data.ibm_resource_group.group.id}"
   tags = ["${var.environment}", "terraform"]
 
-#  provisioner "local-exec" {
-#      command = <<EOF
-#ic api https://cloud.ibm.com;
-#ic resource groups
-#EOF
-#      when = "create"
-#  }
+resource "null_resource" "groups" {
+
+    provisioner "local-exec" {
+        environment = {
+            IBMCLOUD_COLOR=false
+        }
+        command = <<EOT
+        ibmcloud login -c ${var.account_id} --apikey ${var.ibm_cloud_api_key} -g ${var.resource_group} -r ${var.region} \
+        && ibmcloud resource groups
+        EOT
+    }
+  
 }
 
 resource "ibm_is_subnet" "subnet1" {
