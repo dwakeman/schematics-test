@@ -17,6 +17,7 @@ resource "ibm_is_vpc" "vpc1" {
   tags = ["${var.environment}", "terraform"]
 }
 
+/*
 resource "null_resource" "groups" {
 
     provisioner "local-exec" {
@@ -30,6 +31,7 @@ resource "null_resource" "groups" {
     }
   
 }
+*/
 
 resource "ibm_is_subnet" "subnet1" {
   name            = "${var.vpc_name}-subnet1"
